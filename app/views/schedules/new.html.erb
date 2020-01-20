@@ -21,5 +21,6 @@
     <%= form.label :deadline, '期限' %>
     <%= form.date_field :deadline %>
   </div>
+    <%= form.hidden_field :compleate, :value => false %>
   <%= form.submit '保存', class: 'btn btn-primary' %>
 <% end %>
