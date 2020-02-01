@@ -1,5 +1,9 @@
 class SchedulesController < ApplicationController
   def index
+    # 一覧ページにDBに保存しているデータを表示するために全件取得
+    # あとでページネーションの処理を記述
+    @schedules = Schedule.all
+    # @schedule = Schedule.id
   end
 
   def new
@@ -13,6 +17,6 @@ class SchedulesController < ApplicationController
   private
 
     def schedule_params
-      params.require(:schedules).permit(:name,:title,:body,:deadline,:compleate)
+      params.require(:schedule).permit(:name, :title, :body, :deadline, :complete)
     end
 end

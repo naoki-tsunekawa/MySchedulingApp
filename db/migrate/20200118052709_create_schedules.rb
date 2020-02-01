@@ -5,7 +5,7 @@ class CreateSchedules < ActiveRecord::Migration[5.0]
       t.string :title
       t.text :body
       t.datetime :deadline
-      t.boolean :compleate
+      t.boolean :complete
 
       t.timestamps
     end

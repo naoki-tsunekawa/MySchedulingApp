@@ -12,14 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20200118052709) do
 
-  create_table "schedules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "title"
-    t.text     "body",       limit: 65535
+  create_table "schedules", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "title"
+    t.text "body"
     t.datetime "deadline"
-    t.boolean  "compleate"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.boolean "complete"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

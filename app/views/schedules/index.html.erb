@@ -7,27 +7,22 @@
 <table class="table table-hover schedules__table">
   <thead>
     <tr>
-      <th>チェック</th>
+      <th>ID</th>
+      <th>期限</th>
       <th>タイトル</th>
       <th>作成者</th>
       <th>作成日時</th>
-      <th>期限</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th><input type="checkbox"></th>
-      <td>スケジュール1</td>
-      <td>Naoki</td>
-      <td>2020年1月1日</td>
-      <td>2020年1月15日</td>
-    </tr>
-    <tr>
-      <th><input type="checkbox"></th>
-      <td>スケジュール2</td>
-      <td>Naoki</td>
-      <td>2020年1月1日</td>
-      <td>2020年1月15日</td>
-    </tr>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.id %></td>
+        <td><%= schedule.deadline.to_s(:datetime_jp) %></td>
+        <td><%= schedule.title %></td>
+        <td><%= schedule.name %></td>
+        <td><%= schedule.created_at.to_s(:datetime_jp) %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
