@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get 'schedules', to: 'schedules#index'
   get 'schedules/new', to: 'schedules#new'
   post 'schedules', to: 'schedules#create'
+  get 'schedules/:id', to: 'schedules#show'
 end

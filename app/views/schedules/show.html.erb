@@ -1,0 +1,17 @@
+<div class="d-flex align-items-center mt-4 mb-4">
+  <div class="ml-auto schedules__linkBox">
+    <a href="/schedules" class="btn btn-outline-dark">一覧</a>
+    <a href="/schedules" class="btn btn-outline-dark">編集</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h4><%= @schedule.title %></h4>
+    <p class="deadline_text"><%= @schedule.deadline.to_s(:datetime_jp)%></p>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= simple_format(@schedule.body) %></p>
+    <p class="text-right font-weight-bold mr-10"><%= @schedule.name %></p>
+  </div>
+</div>
