@@ -1,7 +1,7 @@
 <div class="d-flex align-items-center">
   <h1 class="title">新規スケジュール作成</h1>
   <div class="ml-auto schedules__linkBox">
-    <a href="/schedules" class="btn btn-outline-dark">スケジュール一覧</a>
+    <%= link_to 'スケジュール一覧', schedules_path, class:'btn btn-outline-dark' %>
   </div>
 </div>
 <%= form_with model:@schedule do |form|  %>

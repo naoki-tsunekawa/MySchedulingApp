@@ -1,7 +1,7 @@
 <div class="d-flex align-items-center header-container">
   <h1 class="title">スケジュール一覧</h1>
   <div class="ml-auto schedules__linkBox">
-    <a href="/schedules/new" class="btn btn-outline-dark">新規作成</a>
+    <%= link_to '新規作成', new_schedule_path, class: 'btn btn-outline-dark' %>
   </div>
 </div>
 <table class="table table-hover schedules__table">
@@ -12,6 +12,7 @@
       <th>タイトル</th>
       <th>作成者</th>
       <th>作成日時</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +23,7 @@
         <td><%= schedule.title %></td>
         <td><%= schedule.name %></td>
         <td><%= schedule.created_at.to_s(:datetime_jp) %></td>
+        <td><%= link_to '詳細', schedule, class:'btn btn-outline-dark' %></td>
       </tr>
     <% end %>
   </tbody>
