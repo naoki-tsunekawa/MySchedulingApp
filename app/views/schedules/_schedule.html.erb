@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-header">
+    <h4><%= schedule.title %></h4>
+    <p class="deadline_text"><%= @schedule.deadline.to_s(:datetime_jp)%></p>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= simple_format(schedule.body) %></p>
+    <p class="text-right font-weight-bold mr-10"><%= @schedule.name %></p>
+  </div>
+</div>
