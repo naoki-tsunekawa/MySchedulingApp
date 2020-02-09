@@ -1,4 +1,6 @@
 class SchedulesController < ApplicationController
+  before_action :set_target_schedule, only: %i[edit, update, destroy, show]
+
   def index
     # 一覧ページにDBに保存しているデータを表示するために全件取得
     # あとでページネーションの処理を記述
@@ -17,23 +19,21 @@ class SchedulesController < ApplicationController
   end
 
   def show
-    @schedule = Schedule.find(params[:id])
+
   end
 
   def edit
-    @schedule = Schedule.find(params[:id])
+
   end
 
   def update
-    schedule = Schedule.find(params[:id])
-    schedule.update(schedule_params)
+    @schedule.update(schedule_params)
 
     redirect_to schedule
   end
 
   def destroy
-    schedule = Schedule.find(params[:id])
-    schedule.delete
+    @schedule.delete
 
     redirect_to schedules_path
   end
@@ -42,5 +42,9 @@ class SchedulesController < ApplicationController
 
     def schedule_params
       params.require(:schedule).permit(:name, :title, :body, :deadline, :complete)
+    end
+
+    def set_target_schedule
+      @schedule = Schedule.find(params[:id])
     end
 end
