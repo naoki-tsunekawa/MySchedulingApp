@@ -3,9 +3,7 @@ class SchedulesController < ApplicationController
 
   def index
     # 一覧ページにDBに保存しているデータを表示するために全件取得
-    # あとでページネーションの処理を記述
-    @schedules = Schedule.all
-    # @schedule = Schedule.id
+    @schedules = Schedule.page(params[:page])
   end
 
   def new
