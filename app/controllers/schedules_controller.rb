@@ -1,5 +1,5 @@
 class SchedulesController < ApplicationController
-  before_action :set_target_schedule, only: %i[edit, update, destroy, show]
+  before_action :set_target_schedule, only: %i[edit update show destroy]
 
   def index
     # 一覧ページにDBに保存しているデータを表示するために全件取得
@@ -12,8 +12,8 @@ class SchedulesController < ApplicationController
 
   def create
     schedule = Schedule.create(schedule_params)
-
-    redirect_to schedules_path
+    flash[:notice] = "「#{schedule.title}」のスケジュールを新規作成しました。"
+    redirect_to schedule
   end
 
   def show
@@ -32,8 +32,7 @@ class SchedulesController < ApplicationController
 
   def destroy
     @schedule.delete
-
-    redirect_to schedules_path
+    redirect_to schedules_path, flash: { notice: "「#{@schedule.title}」のスケジュールを削除しました。"}
   end
 
   private
