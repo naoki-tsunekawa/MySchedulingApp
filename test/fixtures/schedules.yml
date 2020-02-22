@@ -1,4 +1,16 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: schedules
+#
+#  id         :integer          not null, primary key
+#  body       :text(65535)
+#  complete   :boolean
+#  deadline   :datetime
+#  name       :string(255)
+#  title      :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 
 one:
   name: MyString
