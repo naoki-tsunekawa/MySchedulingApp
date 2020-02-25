@@ -1,0 +1,15 @@
+<div class="p-comment__formBox">
+  <p class="p-comment__formTitle">コメント記入</p>
+  <%= form_with model:comment do |from| %>
+    <%= from.hidden_field :schedule_id %>
+    <div class="form-group">
+      <%= from.label :name, '名前' %>
+      <%= from.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= from.label :comment, 'コメント' %>
+      <%= from.text_area :comment, class: 'form-control', rows: 4 %>
+    </div>
+    <%= from.submit '送信', class: 'btn btn-primary' %>
+  <% end %>
+</div>

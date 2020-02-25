@@ -24,7 +24,7 @@ class SchedulesController < ApplicationController
   end
 
   def show
-
+    @comment = @schedule.comments.new
   end
 
   def edit

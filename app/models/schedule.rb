@@ -12,7 +12,7 @@
 #  updated_at :datetime         not null
 #
 class Schedule < ApplicationRecord
-  has_many: comments
+  has_many :comments
 
   validates :name, presence: true, length: { maximum: 10 }
   validates :title, presence: true, length: { maximum: 30 }
