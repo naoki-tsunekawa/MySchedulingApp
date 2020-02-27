@@ -10,4 +10,12 @@
 <% end %>
 
 <%= render partial: 'schedule', object: @schedule %>
-<%= render partial: 'comment_form', locals: { comment: @comment } %>
+
+<div class="p-comment__list">
+  <div class="p-comment__listTitle">
+    コメント
+  </div>
+  <%= render @schedule.comments %>
+</div>
+
+<%= render partial: 'comments/form', locals: { comment: @comment } %>

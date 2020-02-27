@@ -24,7 +24,7 @@ class SchedulesController < ApplicationController
   end
 
   def show
-    @comment = @schedule.comments.new
+    @comment = Comment.new(schedule_id: @schedule.id)
   end
 
   def edit
