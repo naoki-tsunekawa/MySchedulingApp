@@ -32,9 +32,14 @@ class SchedulesController < ApplicationController
   end
 
   def update
-    @schedule.update(schedule_params)
-
-    redirect_to schedule
+    if @schedule.update(schedule_params)
+      redirect_to schedule_path, flash: { notice: "スケジュールを編集しました。" }
+    else
+      redirect_to edit_schedule_path, flash: {
+        schedule: @schedule,
+        error_messages: @schedule.errors.full_messages
+       }
+    end
   end
 
   def destroy
