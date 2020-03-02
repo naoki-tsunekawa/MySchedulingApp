@@ -6,6 +6,9 @@ ja:
         title: タイトル
         body: 本文
         deadline: 期限
+      comment:
+        name: 名前
+        comment: コメント
   views:
     pagination:
       first: 最初

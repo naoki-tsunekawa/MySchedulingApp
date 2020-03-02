@@ -5,9 +5,9 @@ class CommentsController < ApplicationController
       flash[:notice] = "コメントを保存しました。"
       redirect_to comment.schedule
     else
-      flash[:comment] = comment_params
-      flash[:error_messages] = comment.error.full_messages
-      redirect_back fallback_location: comment.schedule
+     flash[:comment] = comment_params
+     flash[:error_messages] = comment.errors.full_messages
+     redirect_back fallback_location: comment.schedule
     end
   end
 
