@@ -43,7 +43,7 @@ class SchedulesController < ApplicationController
   end
 
   def destroy
-    @schedule.delete
+    @schedule.destroy
     redirect_to schedules_path, flash: { notice: "「#{@schedule.title}」のスケジュールを削除しました。"}
   end
 

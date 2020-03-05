@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200223134716) do
+ActiveRecord::Schema.define(version: 20200304111126) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "schedule_id"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20200223134716) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["schedule_id"], name: "index_comments_on_schedule_id"
+  end
+
+  create_table "schedule_tag_relations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "schedule_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["schedule_id"], name: "index_schedule_tag_relations_on_schedule_id"
+    t.index ["tag_id"], name: "index_schedule_tag_relations_on_tag_id"
   end
 
   create_table "schedules", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -31,5 +40,13 @@ ActiveRecord::Schema.define(version: 20200223134716) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "comments", "schedules"
+  add_foreign_key "schedule_tag_relations", "schedules"
+  add_foreign_key "schedule_tag_relations", "tags"
 end
