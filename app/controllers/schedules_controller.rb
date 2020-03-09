@@ -50,7 +50,7 @@ class SchedulesController < ApplicationController
   private
 
     def schedule_params
-      params.require(:schedule).permit(:name, :title, :body, :deadline, :complete)
+      params.require(:schedule).permit(:name, :title, :body, :deadline, :complete, tag_ids: [])
     end
 
     def set_target_schedule

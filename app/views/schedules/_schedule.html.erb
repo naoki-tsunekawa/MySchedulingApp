@@ -1,6 +1,9 @@
 <div class="card">
   <div class="card-header">
     <h4><%= schedule.title %></h4>
+    <% schedule.tags.each do |tag| %>
+      <span class="badge badge-primary"><%= tag.name %></span>
+    <% end %>
     <p class="deadline_text"><%= schedule.deadline.to_s(:datetime_jp)%></p>
   </div>
   <div class="card-body">
