@@ -2,8 +2,8 @@ class SchedulesController < ApplicationController
   before_action :set_target_schedule, only: %i[edit update show destroy]
 
   def index
-    # 一覧ページにDBに保存しているデータを表示するために全件取得
-    @schedules = Schedule.page(params[:page])
+    @schedules = params[:tag_id].present? ? Tag.find(params[:tag_id]).schedules : Schedule.all
+    @schedules = @schedules.page(params[:page])
   end
 
   def new
